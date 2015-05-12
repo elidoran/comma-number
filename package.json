@@ -1,0 +1,31 @@
+{
+  "name": "comma-number",
+  "version": "1.0.0",
+  "description": "Format a number with commas",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "tape test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cesarandreu/comma-number.git"
+  },
+  "keywords": [
+    "number",
+    "format",
+    "comma"
+  ],
+  "author": {
+    "name": "Cesar Andreu",
+    "email": "cesarandreu@gmail.com",
+    "url": "https://github.com/cesarandreu"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cesarandreu/comma-number/issues"
+  },
+  "homepage": "https://github.com/cesarandreu/comma-number#readme",
+  "devDependencies": {
+    "tape": "^4.0.0"
+  }
+}
