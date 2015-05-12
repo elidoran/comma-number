@@ -41,7 +41,8 @@ test('Formatting', function (t) {
 
   t.plan(testPairs.length)
   testPairs.forEach(function (pair) {
-    t.equal(commaNumber(pair[0]), pair[1], JSON.stringify(pair[0]) + ' => ' + pair[1])
+    var str = '' + (typeof pair[0] === 'object' ? JSON.stringify(pair[0]) : pair[0])
+    t.equal(commaNumber(pair[0]), pair[1], str + ' => ' + pair[1])
   })
 })
 
