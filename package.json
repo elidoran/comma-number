@@ -4,7 +4,8 @@
   "description": "Format a number with commas",
   "main": "lib/index.js",
   "scripts": {
-    "test": "tape test/index.js"
+    "test": "tape test/index.js",
+    "lint": "standard"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
   },
   "homepage": "https://github.com/cesarandreu/comma-number#readme",
   "devDependencies": {
+    "standard": "^4.5.4",
     "tape": "^4.0.0"
   }
 }
