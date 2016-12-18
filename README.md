@@ -17,16 +17,21 @@ var commaNumber = require('comma-number')
 commaNumber(1000) // "1,000"
 commaNumber(-1000) // "-1,000"
 commaNumber(-1000, '.') // "-1.000"
+
+commaNumber(1000.12) // "1,000.12"
+commaNumber(-1000.12) // "-1,000.12"
+commaNumber('-1000,12', '.', ',') // "-1.000,12"
 ```
 
 ## API
 
-### commaNumber(number, [separator=','])
+### commaNumber(number, [separator=','], [decimalChar='.'])
 
 **Parameters:**
 
 * number : {(Number|String)} Number to format
 * separator : {String} Value used to separate numbers
+* decimalChar : {String} Value used to separate the decimal value
 
 **Returns:**
 

@@ -27,6 +27,8 @@
   },
   "homepage": "https://github.com/cesarandreu/comma-number#readme",
   "devDependencies": {
+    "benchmark": "^2.1.2",
+    "console.table": "^0.7.0",
     "standard": "^4.5.4",
     "tape": "^4.0.0"
   }
