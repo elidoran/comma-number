@@ -1,5 +1,5 @@
 require('console.table')
-var comma = require('../')
+var comma = require('../lib/index.js')
   , Benchmark = require('benchmark')
 
 Benchmark.options.initCount  = 10
