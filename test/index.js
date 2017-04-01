@@ -106,13 +106,6 @@ test('Formatting', function (t) {
     ['1234567.89', '1,234,567.89'],
     ['1234567.899', '1,234,567.899'],
 
-    // Invalid input
-    [[], '0'],
-    [{}, '0'],
-    [NaN, '0'],
-    [null, '0'],
-    [undefined, '0'],
-    ['abc', '0']
   ]
 
   t.plan(testPairs.length)
@@ -128,9 +121,28 @@ test('Formatting', function (t) {
   })
 })
 
+test('Invalid input', function (t) {
+  t.plan(6)
+
+  var input = [
+    [],
+    {},
+    null,
+    undefined,
+    'abc',
+  ]
+
+  t.equal(commaNumber(input[0]), input[0], '[] => []')
+  t.equal(commaNumber(input[1]), input[1], '{} => {}')
+  t.equal(commaNumber(input[2]), input[2], 'null => null')
+  t.equal(commaNumber(input[3]), input[3], 'undefined => undefined')
+  t.equal(commaNumber(input[4]), input[4], '\'abc\' => \'abc\'')
+
+  t.equal(isNaN(commaNumber(NaN)), true, 'NaN => NaN')
+})
+
 test('Separator', function (t) {
-  t.plan(3)
-  t.equal(commaNumber(1000, ''), '1000', '1000 => 1000')
+  t.plan(2)
   t.equal(commaNumber(1000, ' '), '1 000', '1000 => 1 000')
   t.equal(commaNumber(1000, '.'), '1.000', '1000 => 1.000')
 })
