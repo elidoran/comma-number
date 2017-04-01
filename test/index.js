@@ -1,7 +1,22 @@
 var test = require('tape')
 var commaNumber = require('../lib')
 
+function testEach(pairs, t, format) {
+  t.plan(pairs.length)
+  pairs.forEach(function (pair) {
+    var input = pair[0]
+      , actual = format(input)
+      , expected = pair[1]
+      , inputString = typeof input === 'object' ? JSON.stringify(input) :
+                      typeof input === 'string' ? '\'' + input + '\''   : input
+      , description = inputString + ' => ' + expected
+
+    t.equal(actual, expected, description)
+  })
+}
+
 test('Formatting', function (t) {
+
   var testPairs = [
     // Positive numbers
     [0, '0'],
@@ -106,23 +121,57 @@ test('Formatting', function (t) {
     ['1234567.89', '1,234,567.89'],
     ['1234567.899', '1,234,567.899'],
 
+    // Negative numbers
+    ['-1', '-1'],
+    ['-12', '-12'],
+    ['-123', '-123'],
+    ['-1234', '-1,234'],
+    ['-12345', '-12,345'],
+    ['-123456', '-123,456'],
+    ['-1234567', '-1,234,567'],
+    ['-1234567890', '-1,234,567,890'],
+    [-Infinity, '-Infinity'],
+
+    // With decimals
+    ['-.1', '-.1'],
+    ['-.12', '-.12'],
+    ['-.123', '-.123'],
+    ['-1.2', '-1.2'],
+    ['-1.23', '-1.23'],
+    ['-1.234', '-1.234'],
+    ['-12.3', '-12.3'],
+    ['-12.34', '-12.34'],
+    ['-123.4', '-123.4'],
+    ['-123.45', '-123.45'],
+    ['-1234.5', '-1,234.5'],
+    ['-1234.56', '-1,234.56'],
+    ['-12345.6', '-12,345.6'],
+    ['-12345.67', '-12,345.67'],
+    ['-123456.7', '-123,456.7'],
+    ['-123456.78', '-123,456.78'],
+    ['-123456.789', '-123,456.789'],
+    ['-1234567.8', '-1,234,567.8'],
+    ['-1234567.89', '-1,234,567.89'],
+    ['-1234567.899', '-1,234,567.899'],
+
+
   ]
 
-  t.plan(testPairs.length)
-  testPairs.forEach(function (pair) {
-    var input = pair[0]
-      , actual = commaNumber(input)
-      , expected = pair[1]
-      , inputString = typeof input === 'object' ? JSON.stringify(input) :
-                      typeof input === 'string' ? '\'' + input + '\''   : input
-      , description = inputString + ' => ' + expected
-
-    t.equal(actual, expected, description)
-  })
+  testEach(testPairs, t, commaNumber)
+  // t.plan(testPairs.length)
+  // testPairs.forEach(function (pair) {
+  //   var input = pair[0]
+  //     , actual = commaNumber(input)
+  //     , expected = pair[1]
+  //     , inputString = typeof input === 'object' ? JSON.stringify(input) :
+  //                     typeof input === 'string' ? '\'' + input + '\''   : input
+  //     , description = inputString + ' => ' + expected
+  //
+  //   t.equal(actual, expected, description)
+  // })
 })
 
 test('Invalid input', function (t) {
-  t.plan(6)
 
   var input = [
     [],
@@ -132,6 +181,7 @@ test('Invalid input', function (t) {
     'abc',
   ]
 
+  t.plan(6)
   t.equal(commaNumber(input[0]), input[0], '[] => []')
   t.equal(commaNumber(input[1]), input[1], '{} => {}')
   t.equal(commaNumber(input[2]), input[2], 'null => null')
@@ -152,4 +202,20 @@ test('Decimal Separator', function (t) {
   t.equal(commaNumber('1234.5', undefined, '.'), '1,234.5', '1234.5 => 1,234.5')
   t.equal(commaNumber('1234,5', '.', ','), '1.234,5', '1234,5 => 1.234,5')
   t.equal(commaNumber('1234 5', undefined, ' '), '1,234 5', '1234 5 => 1,234 5')
+})
+
+test('bindWith()', function (t) {
+
+  var boundVersion = commaNumber.bindWith('_', '!')
+
+  var testPairs = [
+    ['1234!56', '1_234!56'],
+    ['1234567!89', '1_234_567!89'],
+    ['1234567890!12', '1_234_567_890!12'],
+    ['-1234!56', '-1_234!56'],
+    ['-1234567!89', '-1_234_567!89'],
+    ['-1234567890!12', '-1_234_567_890!12'],
+  ]
+
+  testEach(testPairs, t, boundVersion)
 })
