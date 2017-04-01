@@ -5,7 +5,11 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "tape test/index.js",
-    "lint": "standard"
+    "benchmark": "node benchmark/run.js",
+    "coverage": "istanbul cover -x 'benchmark/**' -x 'test/**' tape -- test/index.js",
+    "coverage-lcov": "istanbul cover tape --report lcovonly -- test/index.js",
+    "publish-coverage": "npm run coverage-lcov && cat coverage/lcov.info | coveralls",
+    "coverage-clean": "rm -rf ./coverage"
   },
   "repository": {
     "type": "git",
@@ -17,19 +21,20 @@
     "comma"
   ],
   "author": {
-    "name": "Cesar Andreu",
-    "email": "cesarandreu@gmail.com",
-    "url": "https://github.com/cesarandreu"
+    "name": "Eli Doran",
+    "email": "eli+npm@elidoran.com",
+    "url": "https://github.com/elidoran"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/cesarandreu/comma-number/issues"
+    "url": "https://github.com/elidoran/comma-number/issues"
   },
-  "homepage": "https://github.com/cesarandreu/comma-number#readme",
+  "homepage": "https://github.com/elidoran/comma-number#readme",
   "devDependencies": {
-    "benchmark": "^2.1.2",
-    "console.table": "^0.7.0",
-    "standard": "^4.5.4",
-    "tape": "^4.0.0"
+    "benchmark": "^2.1.4",
+    "console.table": "^0.8.0",
+    "coveralls": "^2.13.0",
+    "istanbul": "^0.4.5",
+    "tape": "^4.6.3"
   }
 }
