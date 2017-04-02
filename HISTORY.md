@@ -1,4 +1,5 @@
 2.0.0 - 2017/04/02
+==================
 
 1. revised implementation
 2. supports decimals
@@ -13,6 +14,7 @@
 
 
 1.1.0 / 2015-07-16
+==================
 
 * Use isFinite instead of Number.isFinite for improved browser compatibility
 
