@@ -1,13 +1,16 @@
 # Comma number
+[![Build Status](https://travis-ci.org/elidoran/comma-number.svg?branch=master)](https://travis-ci.org/elidoran/comma-number)
+[![Dependency Status](https://gemnasium.com/elidoran/comma-number.png)](https://gemnasium.com/elidoran/comma-number)
+[![npm version](https://badge.fury.io/js/comma-number.svg)](http://badge.fury.io/js/comma-number)
+[![Coverage Status](https://coveralls.io/repos/github/elidoran/comma-number/badge.svg?branch=master)](https://coveralls.io/github/elidoran/comma-number?branch=master)
 
-[![NPM version][npm-image]][npm-url]
-[![build status][travis-image]][travis-url]
 
-## Installation
+## Install
 
 ```sh
-$ npm install comma-number
+$ npm install --save comma-number
 ```
+
 
 ## Usage
 
@@ -23,6 +26,24 @@ commaNumber(-1000.12) // "-1,000.12"
 commaNumber('-1000,12', '.', ',') // "-1.000,12"
 ```
 
+
+## Version 2 Changes
+
+Revised implementation changes the API a bit:
+
+1. input with a type other than `string` and `number` is returned **as is**, not as `'0'`.
+2. supports decimals in the number
+3. a string number may use an alternate decimal character, specify it as the third argument
+4. added a `bindWith` function to use a currying style to bind options for a reusable format function.
+
+Other changes:
+
+1. Added benchmarking to test implementation performance
+2. added code coverage
+3. added new badges in this README
+4. added more versions to the Travis CI config
+
+
 ## API
 
 ### commaNumber(number, [separator=','], [decimalChar='.'])
@@ -37,17 +58,42 @@ commaNumber('-1000,12', '.', ',') // "-1.000,12"
 
 * {String} Comma formatted number
 
-## Tests
 
-```sh
-$ npm test
+### bindWith(separator, decimalChar)
+
+The `commaNumber` function accepts these same parameters as the second and third params. This prevents using currying to bind them and reuse that bound function.
+
+The `bindWith` function accepts the options and returns a function bound with them.
+
+```javascript
+var commaNumber = require('comma-number')
+  , format = commaNumber.bindWith(',', '.')
+  , result = format('1234567.89')
+
+// outputs:  1,234,567.89
+console.log(result)
 ```
 
-## License
 
-MIT
+## Scripts for Testing, Benchmarking, and Code Coverage
 
-[npm-image]: https://img.shields.io/npm/v/comma-number.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/comma-number
-[travis-image]: https://img.shields.io/travis/cesarandreu/comma-number/master.svg?style=flat-square
-[travis-url]: https://travis-ci.org/cesarandreu/comma-number
+```sh
+# run tests via Tape
+$ npm test
+
+# benchmark current implementation versus previous
+npm run benchmark
+
+# get coverage info
+npm run coverage
+```
+
+
+## Performance Comparison
+
+The rewrite has a considerable performance increase from the previous version.
+
+I converted the benchmark output from my machine into a [table](docs/benchmark.md).
+
+
+## License MIT
