@@ -3,13 +3,20 @@
   "version": "1.1.0",
   "description": "Format a number with commas",
   "main": "lib/index.js",
+  "files": [
+    "lib/index.js"
+  ],
   "scripts": {
-    "test": "tape test/index.js",
-    "lint": "standard"
+    "test": "tape test/lib/index.js",
+    "benchmark": "node benchmark/index.js",
+    "coverage": "istanbul cover -x 'benchmark/**' -x 'test/**' tape -- test/lib/index.js",
+    "coverage-lcov": "istanbul cover tape --report lcovonly -- test/lib/index.js",
+    "publish-coverage": "npm run coverage-lcov && cat coverage/lcov.info | coveralls",
+    "coverage-clean": "rm -rf ./coverage"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cesarandreu/comma-number.git"
+    "url": "git+https://github.com/elidoran/comma-number.git"
   },
   "keywords": [
     "number",
@@ -17,17 +24,21 @@
     "comma"
   ],
   "author": {
-    "name": "Cesar Andreu",
-    "email": "cesarandreu@gmail.com",
-    "url": "https://github.com/cesarandreu"
+    "name": "Eli Doran",
+    "email": "eli+npm@elidoran.com",
+    "url": "https://github.com/elidoran"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/cesarandreu/comma-number/issues"
+    "url": "https://github.com/elidoran/comma-number/issues"
   },
-  "homepage": "https://github.com/cesarandreu/comma-number#readme",
+  "homepage": "https://github.com/elidoran/comma-number#readme",
   "devDependencies": {
-    "standard": "^4.5.4",
-    "tape": "^4.0.0"
+    "benchmark": "^2.1.4",
+    "console.table": "^0.8.0",
+    "coveralls": "^2.13.0",
+    "istanbul": "^0.4.5",
+    "pad": "^1.1.0",
+    "tape": "^4.6.3"
   }
 }
