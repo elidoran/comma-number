@@ -4,10 +4,10 @@
   "description": "Format a number with commas",
   "main": "lib/index.js",
   "scripts": {
-    "test": "tape test/index.js",
+    "test": "tape test/lib/index.js",
     "benchmark": "node benchmark/index.js",
-    "coverage": "istanbul cover -x 'benchmark/**' -x 'test/**' tape -- test/index.js",
-    "coverage-lcov": "istanbul cover tape --report lcovonly -- test/index.js",
+    "coverage": "istanbul cover -x 'benchmark/**' -x 'test/**' tape -- test/lib/index.js",
+    "coverage-lcov": "istanbul cover tape --report lcovonly -- test/lib/index.js",
     "publish-coverage": "npm run coverage-lcov && cat coverage/lcov.info | coveralls",
     "coverage-clean": "rm -rf ./coverage"
   },

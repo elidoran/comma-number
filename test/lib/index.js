@@ -1,5 +1,5 @@
 var test = require('tape')
-var commaNumber = require('../lib')
+var commaNumber = require('../../lib')
 
 function testEach(pairs, t, format) {
   t.plan(pairs.length)
