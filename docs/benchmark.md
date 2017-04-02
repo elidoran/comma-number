@@ -1,8 +1,19 @@
 # benchmark output as a table
 
+Compares performance of version 1.1.0 versus 2.0.0 measured by BenchmarkJS.
+
+1. input - the input provided to each implementation
+2. old - the previous version, 1.1.0
+3. new - the current version, 2.0.0
+4. + - the change from 'old' to 'new' ((new - old) / old)
+
+(I used the names 'old' and 'new' because they're the same length for the console output during run which prints as each one completes).
+
 Run this for yourself via:
 
 ```sh
+git clone https://github.com/elidoran/comma-number.git
+cd comma-number
 npm run benchmark
 ```
 

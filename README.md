@@ -95,5 +95,7 @@ The rewrite has a considerable performance increase from the previous version.
 
 I converted the benchmark output from my machine into a [table](docs/benchmark.md).
 
+It compares the performance of version 1.1.0 with 2.0.0. The inputs with decimals can only be processed by the new version so those show as "invalid" for the previous version.
+
 
 ## License MIT
