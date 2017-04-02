@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "tape test/index.js",
-    "benchmark": "node benchmark/run.js",
+    "benchmark": "node benchmark/index.js",
     "coverage": "istanbul cover -x 'benchmark/**' -x 'test/**' tape -- test/index.js",
     "coverage-lcov": "istanbul cover tape --report lcovonly -- test/index.js",
     "publish-coverage": "npm run coverage-lcov && cat coverage/lcov.info | coveralls",
@@ -35,6 +35,7 @@
     "console.table": "^0.8.0",
     "coveralls": "^2.13.0",
     "istanbul": "^0.4.5",
+    "pad": "^1.1.0",
     "tape": "^4.6.3"
   }
 }
