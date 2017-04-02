@@ -22,7 +22,7 @@ I converted the output to a table instead of using a screenshot because:
 1. it's very long
 2. it's better in the repo as text to update than an image file
 
-
+## Table
 
 input           |      old     |      new    |  **+**  |
 ---------------:|-------------:|------------:|---------:
@@ -122,3 +122,10 @@ input           |      old     |      new    |  **+**  |
   -1234567890.1 |     invalid  |   1,173,335 |    N/A  |
  -12345678901.2 |     invalid  |   1,182,431 |    N/A  |
 -123456789012.3 |     invalid  |   1,174,234 |    N/A  |
+
+
+## Benchmarking Future
+
+This benchmark script is helpful for comparing new changes to the pre-change version.
+
+It just happens to be starting out as a way to compare the newest major version with the previous one.
