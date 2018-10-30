@@ -8,10 +8,14 @@
   ],
   "scripts": {
     "test": "tape test/lib/index.js",
+    "test4": "nave use 4 npm test",
+    "test6": "nave use 6 npm test",
+    "test8": "nave use 8 npm test",
+    "test10": "nave use 10 npm test",
+    "tests": "npm run test4 && npm run test6 && npm run test8 && npm run test10",
     "benchmark": "node benchmark/index.js",
     "coverage": "istanbul cover -x 'benchmark/**' -x 'test/**' tape -- test/lib/index.js",
-    "coverage-lcov": "istanbul cover tape --report lcovonly -- test/lib/index.js",
-    "publish-coverage": "npm run coverage-lcov && cat coverage/lcov.info | coveralls",
+    "publish-coverage": "npm run coverage && cat coverage/lcov.info | coveralls",
     "coverage-clean": "rm -rf ./coverage"
   },
   "repository": {
@@ -35,10 +39,11 @@
   "homepage": "https://github.com/elidoran/comma-number#readme",
   "devDependencies": {
     "benchmark": "^2.1.4",
-    "console.table": "^0.8.0",
-    "coveralls": "^2.13.0",
+    "console.table": "^0.10.0",
+    "coveralls": "^3.0.2",
     "istanbul": "^0.4.5",
-    "pad": "^1.1.0",
-    "tape": "^4.6.3"
+    "nave": "^2.2.3",
+    "pad": "^2.2.1",
+    "tape": "^4.9.1"
   }
 }
