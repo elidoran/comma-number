@@ -1,6 +1,5 @@
 # Comma number
 [![Build Status](https://travis-ci.org/elidoran/comma-number.svg?branch=master)](https://travis-ci.org/elidoran/comma-number)
-[![Dependency Status](https://gemnasium.com/elidoran/comma-number.png)](https://gemnasium.com/elidoran/comma-number)
 [![npm version](https://badge.fury.io/js/comma-number.svg)](http://badge.fury.io/js/comma-number)
 [![Coverage Status](https://coveralls.io/repos/github/elidoran/comma-number/badge.svg?branch=master)](https://coveralls.io/github/elidoran/comma-number?branch=master)
 
