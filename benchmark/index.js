@@ -260,6 +260,25 @@ suite.on('complete', function() {
   console.table(headers, results)
 })
 
-suite.run({
-  async: false
+console.log('comma-number benchmark (' + process.pid + ')')
+
+const ask = require('readline').createInterface({
+  input : process.stdin,
+  output: process.stdout
+})
+
+ask.question('Begin benchmark? (y/N)  ', function(answer) {
+
+  ask.close()
+
+  if ((answer != null) && (answer[0] === 'y' || answer[0] === 'Y')) {
+    suite.run({
+      async: false
+    })
+  }
+
+  else {
+    console.log('quitting')
+  }
+
 })
