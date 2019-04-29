@@ -12,7 +12,8 @@
     "test6": "nave use 6 npm test",
     "test8": "nave use 8 npm test",
     "test10": "nave use 10 npm test",
-    "tests": "npm run test4 && npm run test6 && npm run test8 && npm run test10",
+    "test12": "nave use 12 npm test",
+    "tests": "npm run test4 && npm run test6 && npm run test8 && npm run test10 && npm run test12",
     "benchmark": "node benchmark/index.js",
     "coverage": "istanbul cover -x 'benchmark/**' -x 'test/**' tape -- test/lib/index.js",
     "publish-coverage": "npm run coverage && cat coverage/lcov.info | coveralls",
@@ -40,10 +41,10 @@
   "devDependencies": {
     "benchmark": "^2.1.4",
     "console.table": "^0.10.0",
-    "coveralls": "^3.0.2",
+    "coveralls": "^3.0.3",
     "istanbul": "^0.4.5",
-    "nave": "^2.2.3",
-    "pad": "^2.2.1",
-    "tape": "^4.9.1"
+    "nave": "^2.2.4",
+    "pad": "^2.3.0",
+    "tape": "^4.10.1"
   }
 }
