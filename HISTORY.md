@@ -7,6 +7,7 @@
 5. use const/let instead of var
 6. use more descriptive variable names
 7. reformat a bit
+8. update benchmark script to report PID and ask before starting so the process can be set to a high priority
 
 2.0.0 - 2017/04/02
 ==================
