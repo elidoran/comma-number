@@ -1,3 +1,13 @@
+2.0.1 - 2019/04/19
+
+1. update dev dependencies
+2. add 2018 and 2019 to copyright
+3. remove lcov only coverage script
+4. add nave dev dependency and use it in test scripts for node 4-12 (evens)
+5. use const/let instead of var
+6. use more descriptive variable names
+7. reformat a bit
+
 2.0.0 - 2017/04/02
 ==================
 
