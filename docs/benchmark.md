@@ -14,6 +14,7 @@ Run this for yourself via:
 ```sh
 git clone https://github.com/elidoran/comma-number.git
 cd comma-number
+npm install
 npm run benchmark
 ```
 
