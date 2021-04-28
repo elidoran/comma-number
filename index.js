@@ -42,6 +42,12 @@ function commaNumber(inputNumber, optionalSeparator, optionalDecimalChar) {
     case 'number':
       stringNumber = String(inputNumber)
       number       = inputNumber
+      // create the string version with the decimalChar they specified.
+      // this matches what the above case 'string' produces,
+      // and, fixes the bug *not* doing this caused.
+      if ('.' !== decimalChar && !Number.isInteger(inputNumber)) {
+        stringNumber = stringNumber.replace('.', decimalChar)
+      }
       break
 
     // return invalid type as-is
