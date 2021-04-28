@@ -206,17 +206,44 @@ tap.test('Invalid input', function (t) {
   t.equal(isNaN(commaNumber(NaN)), true, 'NaN => NaN')
 })
 
-tap.test('Separator', function (t) {
-  t.plan(2)
-  t.equal(commaNumber(1000, ' '), '1 000', '1000 => 1 000')
-  t.equal(commaNumber(1000, '.'), '1.000', '1000 => 1.000')
+tap.test('Separator with string inputs', function (t) {
+  t.plan(6)
+  t.equal(commaNumber('1000', ' '), '1 000', '1000 => 1 000')
+  t.equal(commaNumber('1000', '.'), '1.000', '1000 => 1.000')
+  t.equal(commaNumber('-1000', '.'), '-1.000', '-1000 => -1.000')
+  t.equal(commaNumber('1000.12', ' '), '1 000.12', '1000.12 => 1 000.12')
+  t.equal(commaNumber('1000.12', '.'), '1.000.12', '1000.12 => 1.000.12')
+  t.equal(commaNumber('-1000.12', '.'), '-1.000.12', '-1000.12 => -1.000.12')
 })
 
-tap.test('Decimal Separator', function (t) {
-  t.plan(3)
+tap.test('Separator with number inputs', function (t) {
+  t.plan(6)
+  t.equal(commaNumber(1000, ' '), '1 000', '1000 => 1 000')
+  t.equal(commaNumber(1000, '.'), '1.000', '1000 => 1.000')
+  t.equal(commaNumber(-1000, '.'), '-1.000', '-1000 => -1.000')
+  t.equal(commaNumber(1000.12, ' '), '1 000.12', '1000.12 => 1 000.12')
+  t.equal(commaNumber(1000.12, '.'), '1.000.12', '1000.12 => 1.000.12')
+  t.equal(commaNumber(-1000.12, '.'), '-1.000.12', '-1000.12 => -1.000.12')
+})
+
+tap.test('Decimal Separator with string inputs', function (t) {
+  t.plan(6)
   t.equal(commaNumber('1234.5', undefined, '.'), '1,234.5', '1234.5 => 1,234.5')
   t.equal(commaNumber('1234,5', '.', ','), '1.234,5', '1234,5 => 1.234,5')
   t.equal(commaNumber('1234 5', undefined, ' '), '1,234 5', '1234 5 => 1,234 5')
+  t.equal(commaNumber('-1234.5', undefined, '.'), '-1,234.5', '-1234.5 => -1,234.5')
+  t.equal(commaNumber('-1234,5', '.', ','), '-1.234,5', '-1234,5 => -1.234,5')
+  t.equal(commaNumber('-1234 5', undefined, ' '), '-1,234 5', '-1234 5 => -1,234 5')
+})
+
+tap.test('Decimal Separator with number inputs', function (t) {
+  t.plan(6)
+  t.equal(commaNumber(1234.5, undefined, '.'), '1,234.5', '1234.5 => 1,234.5')
+  t.equal(commaNumber(1234.5, '.', ','), '1.234,5', '1234,5 => 1.234,5')
+  t.equal(commaNumber(1234.5, undefined, ' '), '1,234 5', '1234 5 => 1,234 5')
+  t.equal(commaNumber(-1234.5, undefined, '.'), '-1,234.5', '-1234.5 => -1,234.5')
+  t.equal(commaNumber(-1234.5, '.', ','), '-1.234,5', '-1234,5 => -1.234,5')
+  t.equal(commaNumber(-1234.5, undefined, ' '), '-1,234 5', '-1234 5 => -1,234 5')
 })
 
 tap.test('bindWith() and string inputs', function (t) {
