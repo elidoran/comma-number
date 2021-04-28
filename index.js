@@ -64,7 +64,7 @@ function commaNumber(inputNumber, optionalSeparator, optionalDecimalChar) {
 
   if (decimalIndex > -1) {
     decimal = stringNumber.slice(decimalIndex)
-    stringNumber = stringNumber.slice(0, -decimal.length)
+    stringNumber = stringNumber.slice(0, decimalIndex)
   }
 
   // else {
