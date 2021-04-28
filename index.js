@@ -31,8 +31,9 @@ function commaNumber(inputNumber, optionalSeparator, optionalDecimalChar) {
 
       // if they're not using the Node standard decimal char then replace it
       // before converting.
-      number = decimalChar !== '.' ? Number(stringNumber.replace(decimalChar, '.'))
-                                   : Number(stringNumber)
+      number = Number(
+        (decimalChar !== '.') ? stringNumber.replace(decimalChar, '.') : stringNumber
+      )
       break
 
     // convert to a string.
