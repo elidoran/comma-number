@@ -7,13 +7,13 @@
     "lib/index.js"
   ],
   "scripts": {
-    "test": "tap test/lib/index.js",
-    "test10": "nave use 10 tap --no-coverage test/lib/index.js",
-    "test12": "nave use 12 tap --no-coverage test/lib/index.js",
-    "test14": "nave use 14 tap --no-coverage test/lib/index.js",
+    "test": "tap test.js",
+    "test10": "nave use 10 tap --no-coverage test.js",
+    "test12": "nave use 12 tap --no-coverage test.js",
+    "test14": "nave use 14 tap --no-coverage test.js",
     "tests": "npm run test10 && npm run test12 && npm run test14",
     "benchmark": "node benchmark/index.js",
-    "coverage": "npm run tests && tap --coverage-report=lcovonly test/lib/index.js && cat coverage/lcov.info | coveralls",
+    "coverage": "npm run tests && tap --coverage-report=lcovonly test.js && cat coverage/lcov.info | coveralls",
     "coverage-clean": "rm -rf ./coverage ./.nyc_output"
   },
   "repository": {
