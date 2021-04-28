@@ -1,3 +1,15 @@
+2.0.2 - 2021/04/28
+
+1. update dev dependencies
+2. add 2021 to copyright
+3. reformatted var usage in test/lib/index.js and added new test showing a bug
+4. fixed bug when a number input was given for a `decimalChar` other than `'.'`.
+5. added node 14 to testing
+6. switched from tape to tap for testing and removed istanbul
+7. added `.nyc_output` to git ignore
+8. updated travis config to use a single VM and use nave to run tests with multiple node versions.
+9. add `npm install` to command list in docs/benchmark.md.
+
 2.0.1 - 2019/04/19
 
 1. update dev dependencies
