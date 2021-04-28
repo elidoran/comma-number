@@ -13,7 +13,8 @@
     "test8": "nave use 8 npm test",
     "test10": "nave use 10 npm test",
     "test12": "nave use 12 npm test",
-    "tests": "npm run test4 && npm run test6 && npm run test8 && npm run test10 && npm run test12",
+    "test14": "nave use 14 npm test",
+    "tests": "npm run test4 && npm run test6 && npm run test8 && npm run test10 && npm run test12 && npm run test14",
     "benchmark": "node benchmark/index.js",
     "coverage": "tap --coverage-report=lcovonly test/lib/index.js && cat coverage/lcov.info | coveralls",
     "coverage-clean": "rm -rf ./coverage ./nyc_output"
