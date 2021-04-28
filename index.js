@@ -9,7 +9,7 @@ function commaNumber(inputNumber, optionalSeparator, optionalDecimalChar) {
   let number, stringNumber, decimal
 
   // default `separator` is a comma
-  const separator = optionalSeparator   || ','
+  const separator = optionalSeparator || ','
 
   // default `decimalChar` is a period
   const decimalChar = optionalDecimalChar || '.'
