@@ -1,5 +1,5 @@
 var tap = require('tap')
-var commaNumber = require('../../lib')
+var commaNumber = require('./index.js')
 
 function testEach(pairs, t, format) {
   t.plan(pairs.length)
