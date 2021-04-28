@@ -1,6 +1,6 @@
 {
   "name": "comma-number",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Format a number with commas or custom character",
   "main": "index.js",
   "files": [
