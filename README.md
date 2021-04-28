@@ -14,7 +14,7 @@ $ npm install --save comma-number
 ## Usage
 
 ```js
-var commaNumber = require('comma-number')
+const commaNumber = require('comma-number')
 
 commaNumber(1000) // "1,000"
 commaNumber(-1000) // "-1,000"
@@ -23,6 +23,14 @@ commaNumber(-1000, '.') // "-1.000"
 commaNumber(1000.12) // "1,000.12"
 commaNumber(-1000.12) // "-1,000.12"
 commaNumber('-1000,12', '.', ',') // "-1.000,12"
+
+// make a new function using custom separator and decimal char:
+const format = commaNumber.bindWith('_', '!')
+// use it as you would commaNumber().
+format(1000)     // "1_000"
+format(-1000)    // "-1_000"
+format(1000.12)  // "1_000!12"
+format(-1000.12) // "-1_000!12"
 ```
 
 
@@ -65,26 +73,29 @@ The `commaNumber` function accepts these same parameters as the second and third
 The `bindWith` function accepts the options and returns a function bound with them.
 
 ```javascript
+// the default commaNumber uses a comma separator and period for decimal char.
 var commaNumber = require('comma-number')
-  , format = commaNumber.bindWith(',', '.')
-  , result = format('1234567.89')
+  // can build a custom version using bindWith.
+  , format = commaNumber.bindWith('_', '!')
+  , result1 = commaNumber(1234567.89)
+  , result2 = format('1234567.89')
 
-// outputs:  1,234,567.89
-console.log(result)
+console.log(result1) // outputs:  1,234,567.89
+console.log(result2) // outputs:  1_234_567!89
 ```
 
 
 ## Scripts for Testing, Benchmarking, and Code Coverage
 
 ```sh
-# run tests via Tape
+# run tests via tap
 $ npm test
 
 # benchmark current implementation versus previous
 npm run benchmark
 
-# get coverage info
-npm run coverage
+# get coverage info by default with testing:
+npm test
 ```
 
 
@@ -97,4 +108,4 @@ I converted the benchmark output from my machine into a [table](docs/benchmark.m
 It compares the performance of version 1.1.0 with 2.0.0. The inputs with decimals can only be processed by the new version so those show as "invalid" for the previous version.
 
 
-## License MIT
+## [MIT License](LICENSE.md)
