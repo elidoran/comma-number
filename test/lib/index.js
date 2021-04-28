@@ -1,4 +1,4 @@
-var test = require('tape')
+var tap = require('tap')
 var commaNumber = require('../../lib')
 
 function testEach(pairs, t, format) {
@@ -21,7 +21,7 @@ function testEach(pairs, t, format) {
   })
 }
 
-test('Formatting', function (t) {
+tap.test('Formatting', function (t) {
 
   var testPairs
 
@@ -162,7 +162,6 @@ test('Formatting', function (t) {
     ['-1234567.89', '-1,234,567.89'],
     ['-1234567.899', '-1,234,567.899'],
 
-
   ]
 
   testEach(testPairs, t, commaNumber)
@@ -185,7 +184,7 @@ test('Formatting', function (t) {
   // })
 })
 
-test('Invalid input', function (t) {
+tap.test('Invalid input', function (t) {
 
   var input
 
@@ -207,20 +206,20 @@ test('Invalid input', function (t) {
   t.equal(isNaN(commaNumber(NaN)), true, 'NaN => NaN')
 })
 
-test('Separator', function (t) {
+tap.test('Separator', function (t) {
   t.plan(2)
   t.equal(commaNumber(1000, ' '), '1 000', '1000 => 1 000')
   t.equal(commaNumber(1000, '.'), '1.000', '1000 => 1.000')
 })
 
-test('Decimal Separator', function (t) {
+tap.test('Decimal Separator', function (t) {
   t.plan(3)
   t.equal(commaNumber('1234.5', undefined, '.'), '1,234.5', '1234.5 => 1,234.5')
   t.equal(commaNumber('1234,5', '.', ','), '1.234,5', '1234,5 => 1.234,5')
   t.equal(commaNumber('1234 5', undefined, ' '), '1,234 5', '1234 5 => 1,234 5')
 })
 
-test('bindWith() and string inputs', function (t) {
+tap.test('bindWith() and string inputs', function (t) {
 
   var boundVersion, testPairs
 
@@ -238,7 +237,7 @@ test('bindWith() and string inputs', function (t) {
   testEach(testPairs, t, boundVersion)
 })
 
-test('bindWith() and number inputs', function (t) {
+tap.test('bindWith() and number inputs', function (t) {
 
   var boundVersion, testPairs
 
