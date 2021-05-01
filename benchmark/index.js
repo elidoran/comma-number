@@ -125,7 +125,7 @@ inputs = [
 
 ]
 
-Benchmark.options.initCount  = 20
+Benchmark.options.initCount  = 10
 Benchmark.options.minSamples = 20
 
 function run(fn, input) {
@@ -180,7 +180,7 @@ function formatOps(info) {
 
 function formatDelta(info) {
   var fixed, decorated
-  fixed     = info.stats.rme.toFixed(1)
+  fixed     = info.rme.toFixed(1)
   decorated = '+-' + fixed + '%'
   return pad(6, decorated)
 }
