@@ -1,3 +1,14 @@
+2.1.0 - 2021/04/30
+==================
+
+1. tweak the flow a bit so the `separator` and `decimal` value are all in an array which is turned into a string via `join('')`. so, all at once the parts are turned into the final string.
+2. added some local scopes to the format.
+3. changed how it calculates where to start putting separators.
+4. switched a while-loop with an increment in the block to a for-loop with the increment in its loop definition.
+5. fixed a bug in the `benchmark/index.js` file when using the `--delta` option.
+6. added more (longer) numbers to the tests
+
+
 2.0.2 - 2021/04/28
 
 1. update dev dependencies
